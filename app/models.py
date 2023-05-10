@@ -5,7 +5,7 @@ from django.utils.text import slugify
 
 class User(AbstractUser):
     wallet = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='app/', max_length=100)
+    image = models.ImageField(upload_to='app/images', max_length=100)
 
     def save(self, **kwargs):
         self.wallet = 12000
@@ -17,7 +17,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='app/', max_length=100)
+    image = models.ImageField(upload_to='app/images', max_length=100)
     quantity = models.PositiveIntegerField()
 
     def save(self, **kwargs):
