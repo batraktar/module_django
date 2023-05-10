@@ -4,12 +4,8 @@ from django.utils.text import slugify
 
 
 class User(AbstractUser):
-    wallet = models.DecimalField(max_digits=10, decimal_places=2)
+    wallet = models.DecimalField(max_digits=10, decimal_places=2, default=12345)
     image = models.ImageField(upload_to='app/images', max_length=100)
-
-    def save(self, **kwargs):
-        self.wallet = 12000
-        super().save(**kwargs)
 
 
 class Product(models.Model):
