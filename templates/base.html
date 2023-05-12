@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">My Shop</a>
+    <a class="navbar-brand" href="{% url 'base' %}">My Shop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,6 +24,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             {% if request.user.is_authenticated%}
+            <li class="nav-item">
+                <a class="nav-link" hfef="#"> Your money: ${{ user.wallet }}</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Welcome, {{ user.username }}</a>
             </li>
@@ -56,6 +59,11 @@
                     <p class="card-text">{{ product.description }}</p>
                     <p class="card-text">Price: ${{ product.price }}</p>
                 </div>
+                {% if request.user.is_superuser %}
+                <a href={% url 'update' product.slug %} class="btn btn-outline-secondary">Update</a>
+                {% endif %}
+                <a href={% url 'product_item' product.slug %} class="btn btn-outline-primary" >Show</a>
+                <a href={#} class="btn btn-success" >Buy</a>
             </div>
         </div>
         {% endfor %}

@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from app.views import Login, Registration, Logout, ProductListView, ProductDetailView, ProductCreateView
+from app.views import Login, Registration, Logout, ProductListView, ProductDetailView, ProductCreateView, ProdUpdateView
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='base'),
@@ -13,6 +13,7 @@ urlpatterns = [
     path('register/', Registration.as_view(), name='registration'),
     path('product/<slug:slug>/', ProductDetailView.as_view(), name='product_item'),
     path('create_product/', ProductCreateView.as_view(), name='create'),
+    path('update_product/<slug:slug>/', ProdUpdateView.as_view(), name='update'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -20,6 +20,7 @@ class UserCreateForm(UserCreationForm):
         self.fields['password2'].widget.attrs.update({'class': 'form-input'})
 
 
+
 # class ProductForm(forms.ModelForm):
 #     name = forms.CharField(label='Product name', max_length=150, required=True)
 #     description = forms.CharField(label='Description', max_length=1500, required=True)

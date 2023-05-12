@@ -2,13 +2,19 @@
 
 {% block content %}
 <div class="d-flex align-items-start mb-3" style="margin-top: 15px; margin-left: 45px;">
-        <img src="{{ product.image.url }}" class="rounded mx-auto d-block" style="height: 200px; weight: 200px"
-             alt="{{ product.slug }}">
-        <div class="card-body" style="margin-left: 45px;">
-            <h5 class="card-title">{{ product.title }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text">Price: {{ product.price }}₴</p>
-            <p class="card-text"><small class="text-body-secondary">Quantity: {{ product.quantity }} </small></p>
-        </div>
+    <img src="{{ product.image.url }}" class="rounded mx-auto d-block" style="height: 500px; weight: 500px"
+         alt="{{ product.slug }}">
+    <div class="card-body" style="margin-left: 45px;">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">Price: {{ product.price }}₴</p>
+        <p class="card-text"><small class="text-body-secondary">Quantity: {{ product.quantity }} </small></p>
+    </div>
+    <div class="card-body">
+        {% if request.user.is_superuser %}
+        <a href={#} class="btn btn-outline-secondary">Update</a>
+        {% endif %}
+        <a href={#} class="btn btn-success">Buy</a>
+    </div>
 </div>
 {% endblock %}
