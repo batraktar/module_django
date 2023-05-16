@@ -47,4 +47,3 @@ class Login(LoginView):
 
 class Logout(LoginRequiredMixin, LogoutView):
     next_page = '/'
-
